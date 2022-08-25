@@ -1,0 +1,67 @@
+
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+        <script>
+            function checkNumber(f)
+            {
+                var a = window.event.keycode;
+                if(!(a>=48 && a<=57))
+                    alert("Type a number between 0 and 9")
+            }
+            </script>
+    </head>
+     <body><br><br><center>
+       <form action="intjsp.jsp">
+<pre>
+<h1>Principal :: <input type=text name=principle value=0 onkeypress="checkNumber(this.form)" ><br>
+    No. of Years :: <input type=text name=year value=0 onkeypress="checkNumber(this.form)" ><br>
+    Rate of Interest :: <input type=text name=interest value=0 onkeypress="checkNumber(this.form)" ><br>
+    <br>
+<input type=submit value="Submit"></h1>
+
+</pre>
+</form></center>
+    </body>
+</html>
+
+
+
+
+
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body><br><br><center><pre><H1>
+        <%
+           
+            String ns= request.getParameter("principle");
+            String ns1= request.getParameter("year");
+            String ns2= request.getParameter("interest");
+           int n1=Integer.parseInt(ns);
+           int n2=Integer.parseInt(ns1);
+           int n3=Integer.parseInt(ns2);
+           double si=((n1*n2*n3)/100);
+           double x;
+           x=n1+si;
+           %>
+            <%
+            out.println("Principal=         "+n1);
+            out.println(" Years=             "+n2);
+            out.println(" Rate of Interest=  "+n3);
+            out.println("<br> ");
+            out.println(" Simple Interest=   "+si);
+            out.println(" Simple Interest=   "+x);
+            %>
+       </H1>    
+    </pre>       
+  </center>
+    </body>  </body>
+</html>
+
+
